@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activez votre compte {{ app_name }}</title>
+    <style>
+        body{
+            font-family: arial,sans-serif;
+            font-size: 12px;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .btn, .btn:active,.btn:visited,.btn:focus,.btn:hover
+         {
+            text-transform: uppercase;
+            padding: 1em 3em;
+            background-color: orange;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+        .my-4 {
+            margin-top : 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <p>Bienvenue sur {{ app_name }}, {{ user.fname }}</p>
+    <p>
+        Nous sommes heureux de vous compter parmi les utilisateurs de {{ app_name }} et nous
+        espérons que vous vivrez une expérience inoubliable à nos côtés.
+    </p>
+    <p>
+        Pour activer votre compte, cliquez sur le bouton ci dessous (il expire dans 24h).
+    </p>
+    <div class="my-4 text-center">
+        <a class="btn" href="{{ absolute_url(path('activate', {'token' : user.token.value })) }}">
+            Activez mon compte
+        </a>
+    </div>
+    <p>
+        L'équipe
+    </p>
+    <p>
+        {{ app_name }}
+    </p>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+    "devDependencies": {
+        "@popperjs/core": "^2.9.2",
+        "@symfony/stimulus-bridge": "^2.0.0",
+        "@symfony/webpack-encore": "^1.0.0",
+        "@vue/compiler-sfc": "^3.0.11",
+        "bootstrap": "^5.0.0-beta3",
+        "core-js": "^3.0.0",
+        "file-loader": "^6.0.0",
+        "regenerator-runtime": "^0.13.2",
+        "stimulus": "^2.0.0",
+        "vue": "^3.0.11",
+        "vue-loader": "^16.2.0",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "axios": "^0.21.1",
+        "leaflet": "^1.7.1",
+        "v-calendar": "^3.0.0-alpha.3",
+        "vue2-dropzone": "^3.6.0"
+    }
+}

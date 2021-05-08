@@ -1,0 +1,21 @@
+{% extends "auth.html.twig" %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('profile') }}
+{% endblock %}   
+{% block content %}
+    <div id="app" class="h100p">
+        <profile 
+            id = "{{ app.user.id }}"
+            fname="{{ app.user.fname }}"
+            lname="{{ app.user.lname }}"
+            phone="{{ app.user.phone }}"
+            email="{{ app.user.email }}"
+            csrf="{{ csrf_token('profile') }}">
+        </profile>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('profile') }}
+{% endblock %}

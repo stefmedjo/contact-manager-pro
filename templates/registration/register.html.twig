@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+{% block title %}Créer mon compte {% endblock %}
+{% block body %}
+<div class="h100p">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 me-auto ms-auto">
+                <h1 class="pb-2 mb-2 text-center border-bottom fs-5">
+                    Créer mon compte
+                </h1>
+                {% include "tools/_flash.html.twig" %}
+                {{ form_start(form) }}
+                    <div class="my-3 row">
+                        <div class="col-md-6">
+                            {{ form_label(form.fname) }}
+                            {{ form_widget(form.fname) }}
+                            
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_label(form.lname) }}
+                            {{ form_widget(form.lname) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="my-3">
+                                {{ form_label(form.email) }}
+                                {{ form_widget(form.email) }}
+                            </div>
+                            <div class="my-3">
+                                {{ form_label(form.password.first) }}
+                                {{ form_widget(form.password.first) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_label(form.password.second) }}
+                                {{ form_widget(form.password.second) }}
+                            </div>
+                            <div class="gap-2 my-3 d-grid">
+                                <button class="btn btn-orange btn-lg" type="submit">Créer mon Compte</button>
+                            </div>
+                        </div>
+                    </div>
+                {{ form_end(form) }}
+                <div class="mb-2 text-center">
+                    Déjà un compte ? Connectez vous en cliquant <a href="{{ path("app_login") }}">ici</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

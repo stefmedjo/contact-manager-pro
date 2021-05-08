@@ -1,0 +1,14 @@
+liip_imagine :
+    resolvers :
+        default :
+            web_path : ~
+
+    filter_sets :
+        cache : ~
+
+        exp :
+            quality : 75
+            filters :
+              fixed: 
+                width: 300
+                height: 300

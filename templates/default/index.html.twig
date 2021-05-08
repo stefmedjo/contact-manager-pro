@@ -1,0 +1,184 @@
+{% extends "base.html.twig" %}
+{% block title %}Accueil {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('search-bar') }}
+{% endblock %} 
+{% block body %}
+<div id="video-block">
+  <video autoplay muted loop id="myVideo">
+    <source src="{{ asset("build/images/template/banniere-lullabike.mp4") }}" type="video/mp4">
+  </video>
+  <div class="search-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center text-orange fs-1 fw-bold my-3">Envie d'aventure</h1>
+          <div class="text-center text-white fs-4">Louer la moto de votre choix</div>
+          <div class="bg-white d-flex justify-content-center ms-auto me-auto search-box mt-3">
+            <div class="flex-fill m-2 p-2">
+              <div class="label">Où</div>
+              <input type="text" placeholder="Ville ou lieu de départ" class="input">
+            </div>
+            <div class="flex-fill m-2 p-2">
+              <div class="label">Début</div>
+              <div class="d-flex">
+                <input type="date" class="input">
+                <select name="" id="" class="input">
+                  <option value="1">12:00</option>
+                  <option value="2">18:00</option>
+                </select>              
+              </div>
+            </div>
+            <div class="flex-fill m-2 p-2">
+              <div class="label">Fin</div>
+              <div class="d-flex">
+                <input type="date" class="input">
+                <select name="" id="" class="input">
+                  <option value="1">12:00</option>
+                  <option value="2">18:00</option>
+                </select>              
+              </div>
+            </div>
+            <div class="">
+              <button class="btn btn-orange">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="insurance">
+            <img class="img-100" src="{{ asset("build/images/template/logo-lemieux.png") }}" alt="{{ app_name }} - Assurance pour vos motos">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="py-5 box w-75 ms-auto me-auto second">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="m-4">
+            <div class="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="my-5 text-orange bi bi-shield-fill-check" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm2.146 5.146a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647z"/>
+              </svg>
+            </div>
+            <div class="fw-bold text-center fs-4">
+              On s'occupe des assurances !
+            </div>
+            <p class="mt-2 mb-5 pb-5 text-center">
+              Bénéficiez de nos assurances pour la durée de 
+              votre location incluant la livraison.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="m-4">
+            <div class="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="my-5 text-orange bi bi-wrench" viewBox="0 0 16 16">
+                <path d="M.102 2.223A3.004 3.004 0 0 0 3.78 5.897l6.341 6.252A3.003 3.003 0 0 0 13 16a3 3 0 1 0-.851-5.878L5.897 3.781A3.004 3.004 0 0 0 2.223.1l2.141 2.142L4 4l-1.757.364L.102 2.223zm13.37 9.019.528.026.287.445.445.287.026.529L15 13l-.242.471-.026.529-.445.287-.287.445-.529.026L13 15l-.471-.242-.529-.026-.287-.445-.445-.287-.026-.529L11 13l.242-.471.026-.529.445-.287.287-.445.529-.026L13 11l.471.242z"/>
+              </svg>
+            </div>
+            <div class="fw-bold text-center fs-4">
+              Une assistance routière pour les imprévus
+            </div>
+            <p class="mt-2 mb-5 pb-5 text-center">
+              Partout où vous irez, vous serez couverts par notre
+              service d'assistance routière.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="m-4">
+            <div class="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="my-5 text-orange bi bi-telephone-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+              </svg>
+            </div>
+            <div class="fw-bold text-center fs-4">
+              A votre service !
+            </div>
+            <p class="mt-2 mb-5 pb-5 text-center">
+              Notre service à la clientèle est disponible 24/7 pour répondre à vos questions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-5 box bg-second-block h100">
+    <div class="container h100">
+      <div class="row v-center">
+        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+          <div class="fs-1 fw-bold text-orange">
+            Faites travailler votre motocyclette
+          </div>
+          <p class="text-white fs-4 py-4">
+            Partager votre motocyclette sur notre <br>
+            plateforme et gagner de l'argent.
+          </p>
+          <div>
+            <a href="#" class="btn btn-orange btn-lg">
+              En savoir plus
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-5 bg-gray">
+    <div class="container w-75">
+      <div class="row box">
+        <div class="col-md-12">
+          <h2 class="py-4 fs-4 fw-bold">Près de chez vous</h2>
+          <div style="position: relative;">
+            <div class="d-flex">
+              <a href="#" class="prev slider-prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+              </a>
+              {% include "default/_bikes_carousel.html.twig" %} 
+              <a href="#" class="next slider-next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+              </a>         
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row box">
+        <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+          <div class="py-3">
+            <img
+              class="img-responsive rounded"
+              src="{{ asset("build/images/template/man-choosed-motorcycles-in-moto-shop-guy-in-black-jacket-manager-with-client.png") }}" 
+              alt="{{ app_name ~ ' discussing.'  }}">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 relative">
+          <div class="py-3 v-center">
+            <h2 class="fs-4 fw-bold">Qui sommes nous</h2>
+            <p class="py-3">
+              {{ app_name }} a été fondé en 2021 par deux entrepreneurs
+              de Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem commodi totam corporis excepturi aliquam sequi eius placeat repudiandae at? Ut minus sequi expedita molestiae at mollitia, ullam harum qui cum!
+            </p>
+            <a href="{{ path("about") }}" class="btn btn-orange">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+{% block javascripts %}
+  {{ parent() }}
+  {{ encore_entry_script_tags('search-bar') }}
+{% endblock %}

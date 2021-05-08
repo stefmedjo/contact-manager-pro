@@ -1,0 +1,281 @@
+@import "~bootstrap/dist/css/bootstrap.min";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap');
+:root {
+    --primary: #fc9a05;
+    --clear-primary: #e6d7c1;
+    --default-color: #121214;
+    --default-font-size: 13px;
+}
+
+#drop-zone {
+  background-color: var(--clear-primary);
+  border-color: var(--primary);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-family: 'Raleway', arial, sans-serif;
+    color: var(--default-color);
+    font-size: var(--default-font-size);
+    height: 100%;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(0,0,0,.55);
+}
+.navbar-brand img {
+  width: 48px;
+}
+.h100p {
+    height: calc(100% - 64px);
+}
+.text-orange {
+    color: var(--primary) !important;
+}
+.btn-orange,
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange:visited {
+    background-color: var(--primary) !important;
+    color: #fff;
+    border: var(--primary);
+    box-shadow: none !important;
+}
+
+.navbar-custom,
+.navbar-custom a {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: normal;
+    font-size: 13px;
+    text-transform: none;
+    color: #231F20;
+    font-weight: 600;
+}
+.navbar-custom a:hover {
+    color: var(--primary);
+}
+
+.form-item:focus,
+.form-item:visited,
+.form-item:active {
+    border-color: var(--primary);
+    outline: 0;
+    box-shadow: none;
+}
+.fs-md {
+    font-size: 13px;
+}
+.text-underline-none {
+    text-decoration: none;
+}
+.link {
+    color: var(--default-color);
+}
+.fs-7 {
+    font-size: 0.8em;
+}
+
+label {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: normal;
+    font-size: 13px;
+    text-transform: none;
+    color: #231F20;
+}
+.img-responsive {
+    width: 100%;
+}
+.rounded {
+  border-radius: 8px;
+}
+.custom-rounded {
+    border-radius: 10px;
+}
+.bg-orange {
+    background-color: var(--primary);
+}
+.badge-danger {
+    background-color: red;
+}
+.navbar-profile-img {
+    width: 18px;
+}
+.slider-prev, .slider-next {
+  background-color: red;
+}
+.slider-next {
+  right: 0;
+}
+.slider-prev, .slider-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2%;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  background: 0 0;
+  border: 0;
+  transition: opacity .15s ease;
+  font-size: 3em;
+}
+.bg-gray {
+  background-color: rgb(238, 238,238);
+}
+.box {
+  padding-top: 5em;
+  padding-bottom : 5em;
+}
+footer a,
+footer a:hover,
+footer a:visited,
+footer a:active,
+footer a:focus{
+  color : #040200;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.bg-first-block {
+  background-image: url(../images/template/biker-girl-in-leather-jacket-on-motorcycle.png);
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+}
+.bg-second-block {
+  background-image: url(../images/template/biker-girl-in-leather-jacket-on-motorcycle.png);
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+}
+.h100 {
+  height: 100%;
+}
+.bg-second-block .v-center {
+  position: relative;
+  top: 30%;
+}
+/*
+@media only screen and (max-width: 500px) {
+  .second {
+    top: 20%;
+    min-height: 50%;
+  }
+}
+
+@media only screen and (max-width: 1300px) and (min-width: 500px) {
+  .second {
+    top: 20%;
+    min-height: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 1300px) {
+  .second {
+    top: 50%;
+    min-height: 100%;
+  }
+}
+*/
+#video-block {
+  width: 100%;
+  position: relative;
+  height: 500px;
+  margin-bottom: 3em;
+  overflow: hidden;
+}
+
+#video-block video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.search-block {
+  width: 100%;
+  position: absolute;
+  top: 15%;
+}
+.relative {
+  position: relative;
+}
+.relative .v-center {
+  position: absolute;
+  top: 25%;
+}
+.relative .v-bottom {
+  position: absolute;
+  bottom: 0;
+}
+.h-right {
+  right: 0;
+}
+.img-100 {
+  width: 100px;
+}
+.search-box {
+  padding-left: 20px;
+  padding-right: 5px;
+  width: 70%;
+}
+.search-box .input,
+.search-box .input:focus,
+.search-box .input:active,
+.search-box .input:visited,
+.search-box .input:focus-within {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  width: 100%;
+}
+.search-box button {
+  height: 100%;
+}
+.search-box .label {
+  font-size: 0.7em;
+  font-weight: 600;
+  margin-left: 2px;
+}
+.search-box > div {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.search-box > div:nth-child(2) {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding-left: 5px;
+  margin-right: 5px;
+}
+.link,
+.link:visited,
+.link:active,
+.link:focus {
+  text-decoration: none;
+  color: #040200;
+}
+.link:hover {
+  text-decoration: underline;
+}
+.insurance {
+  text-align: end;
+  position: relative;
+  top : 65%;
+}
+.insurance img {
+  background-color: #fff;
+  padding: 10px;
+}
