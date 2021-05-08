@@ -42,10 +42,12 @@ class CategoryController extends AbstractController {
 
       /** @var User $user */
       $user = $this->getUser();
-
+      
+      // We link the user to the category he created
       $category->setCreatedBy($user);
       $this->_em->persist($category);
       $this->_em->flush();
+
       return $this->redirectToRoute('category_list');
 
     }
@@ -60,6 +62,7 @@ class CategoryController extends AbstractController {
    * @return void
    */
   public function edit(Category $category, Request $request) {
+    // We check if the user is granted to edit the category
     $this->denyAccessUnlessGranted("edit",$category);
     $form = $this->createForm(CategoryType::class, $category);
     $form->handleRequest($request);
@@ -80,6 +83,7 @@ class CategoryController extends AbstractController {
    * @return void
    */
   public function view(Category $category) {
+    // We check if the user can view the category
     $this->denyAccessUnlessGranted('view',$category);
     return $this->render("category/view.html.twig",['category' => $category]);
   }
@@ -96,6 +100,7 @@ class CategoryController extends AbstractController {
     /** @var User $user */
     $user = $this->getUser();
 
+    // We will display a limited number of categories
     $query = $user->getCreatedCategories();
     $categories = $paginator->paginate(
         $query,
@@ -107,6 +112,10 @@ class CategoryController extends AbstractController {
 
   /**
    * Delete one of my category
+   * The user has to submit a post request with a csrf token and the id
+   * of the category he wants to delete. We first check if csrf token is valid and after 
+   * if user is authorized to delete the category using voter.
+   * 
    * @Route("/delete", name="category_delete")
    *
    * @param CategoryRepository $categoryRepository
@@ -114,24 +123,30 @@ class CategoryController extends AbstractController {
    * @return void
    */
   public function delete(CategoryRepository $categoryRepository, Request $request) {
+    // Retrieve the csrf token
     $token = $request->request->get("token");
 
+    // Check if the token is not valid, redirect to the category list with a flash message error
     if(!$this->isCsrfTokenValid('delete-contact', $token)) {
       $this->addFlash('danger',"Invalid credentials.");
       return $this->redirectToRoute('category_list');
     }
 
+    // Find the category using the id in the request
+    // if not found, redirect to the category list with an error flash message
     $foundCategory = $categoryRepository->findOneBy(['id' => $request->request->get("id")]);
     if(!$foundCategory) {
       $this->addFlash('danger',"Invalid credentials.");
       return $this->redirectToRoute('category_list');
     }
 
+    // Check if user can delete a category using voter App\Voter\CategoryVoter
     $this->denyAccessUnlessGranted('delete',$foundCategory);
 
+    // If yes, remove the category and redirect to category list with success flash message
     $this->_em->remove($foundCategory);
     $this->_em->flush();
-
+    $this->addFlash("success", "Category successfully deleted.");
     return $this->redirectToRoute('category_list');
 
   }

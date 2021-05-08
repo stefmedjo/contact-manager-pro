@@ -43,6 +43,7 @@ class Category
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
+        $this->createdAt = new \DateTime("now");
     }
 
     public function getId(): ?int

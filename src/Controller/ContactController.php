@@ -38,16 +38,17 @@ class ContactController extends AbstractController {
     $contact = new Contact();
     /** @var User $user */
     $user = $this->getUser();
+    // send user as an option of the form to get all the categories he created
+    // as a contact belongs to one category
     $form = $this->createForm(ContactType::class, $contact,['user' => $user]);
     $form->handleRequest($request);
-    if($form->isSubmitted() && $form->isValid()) {
+    if($form->isSubmitted() && $form->isValid()) {  
 
-      /** @var User $user */
-      $user = $this->getUser();
-
+      // link user to contact and save it
       $contact->setCreatedBy($user);
       $this->_em->persist($contact);
       $this->_em->flush();
+      $this->addFlash("success","Contact created successfully.");
       return $this->redirectToRoute('contact_list');
 
     }
@@ -62,6 +63,7 @@ class ContactController extends AbstractController {
    * @return void
    */
   public function edit(Contact $contact, Request $request) {
+    // Check if user can edit a contact using voter App\Voter\ContactVoter
     $this->denyAccessUnlessGranted("edit",$contact);
     /** @var User $user */
     $user = $this->getUser();
@@ -70,6 +72,7 @@ class ContactController extends AbstractController {
     if($form->isSubmitted() && $form->isValid()) {
       $this->_em->persist($contact);
       $this->_em->flush();
+      $this->addFlash("success","Contact successfully updated.");
       return $this->redirectToRoute('contact_list');
 
     }
@@ -84,6 +87,7 @@ class ContactController extends AbstractController {
    * @return void
    */
   public function view(Contact $contact) {
+    // Check if user can view a contact using voter App\Voter\ContactVoter
     $this->denyAccessUnlessGranted('view',$contact);
     return $this->render("contact/view.html.twig",['contact' => $contact]);
   }
@@ -135,6 +139,7 @@ class ContactController extends AbstractController {
 
     $this->_em->remove($foundContact);
     $this->_em->flush();
+    $this->addFlash("success","Contact successfully deleted.");
 
     return $this->redirectToRoute('contact_list');
 
