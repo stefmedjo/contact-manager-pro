@@ -71,9 +71,21 @@ class User implements UserInterface
      */
     private $resetPasswordToken;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Contact::class, mappedBy="createdBy", orphanRemoval=true)
+     */
+    private $createdContacts;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Category::class, mappedBy="createdBy", orphanRemoval=true)
+     */
+    private $createdCategories;
+
 
     public function __construct()
     {
+        $this->createdContacts = new ArrayCollection();
+        $this->createdCategories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -238,6 +250,66 @@ class User implements UserInterface
         }
 
         $this->resetPasswordToken = $resetPasswordToken;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Contact[]
+     */
+    public function getCreatedContacts(): Collection
+    {
+        return $this->createdContacts;
+    }
+
+    public function addCreatedContact(Contact $createdContact): self
+    {
+        if (!$this->createdContacts->contains($createdContact)) {
+            $this->createdContacts[] = $createdContact;
+            $createdContact->setCreatedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCreatedContact(Contact $createdContact): self
+    {
+        if ($this->createdContacts->removeElement($createdContact)) {
+            // set the owning side to null (unless already changed)
+            if ($createdContact->getCreatedBy() === $this) {
+                $createdContact->setCreatedBy(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Category[]
+     */
+    public function getCreatedCategories(): Collection
+    {
+        return $this->createdCategories;
+    }
+
+    public function addCreatedCategory(Category $createdCategory): self
+    {
+        if (!$this->createdCategories->contains($createdCategory)) {
+            $this->createdCategories[] = $createdCategory;
+            $createdCategory->setCreatedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCreatedCategory(Category $createdCategory): self
+    {
+        if ($this->createdCategories->removeElement($createdCategory)) {
+            // set the owning side to null (unless already changed)
+            if ($createdCategory->getCreatedBy() === $this) {
+                $createdCategory->setCreatedBy(null);
+            }
+        }
 
         return $this;
     }
