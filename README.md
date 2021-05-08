@@ -70,4 +70,7 @@ The features of Contact Manager Pro are:
   * View a contact
   * Delete a contact
   * List all contacts
- 
+
+# Todo
+* Create form, view and list template for category entity.
+* Create form, view and list template for contact entity.
