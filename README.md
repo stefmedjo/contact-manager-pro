@@ -10,6 +10,7 @@ your contact informations (email, address)
 * composer 2
 * Windows 10
 * [Symfony CLI](https://symfony.com/download)
+* [Bootstrap V5](https://getbootstrap.com/)
 
 ## Prepare the project
 First, you will need to get the project. Open a terminal where you want to create the
@@ -29,6 +30,16 @@ Secondly, you will need to install dependencies.
 ```bash
 composer install
 ```
+Finally, you will need to install all assets dependencies using npm or yarn:
+```bash
+npm install
+```
+or
+
+```bash
+yarn install
+```
+
 Everything is all ready now.
 
 ## Database
